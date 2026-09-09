@@ -25,7 +25,7 @@ ticket = '2026091705-Type 01-Client 3420a-no me funciona la internet'
 ticket_normalized = ticket.replace('-',' * ').replace('Type','Tipo').replace('Client','Cliente').replace('34','Spain-').upper()
 id, tipo, cliente, issue = ticket_normalized.split('*')
 print(f'\n ID: {id} \n Type: {tipo} \n Client: {cliente} \n Issue: {issue} \n')
-'''
+
 
 with open("el_quijote.txt", "rt", encoding="utf-8") as f:
     texto = f.read().lower()
@@ -34,4 +34,42 @@ texto_modificado = texto.replace('Quijote','Manuel')
 
 cuenta = texto.count("DULCINEA".lower())
 print(cuenta)
+'''
+import re
+
+entradaDni = input("Ingrese su DNI: ")
+patronDni = r'^\d{8}[A-Z]{1}$'
+entradaIban = input("Ingrese su IBAN: ")
+patronIban = r'^ES\d{22}$'
+entradaPass = input("Ingrese su Password: ")
+patronPass = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$'
+entradaEmail = input("Ingrese su Email: ")
+patronEmail = r'^[a-zA-Z0-9_%+-]+(?:\.[a-zA-Z0-9_%+-]+)*@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,}$'
+
+
+#DNI
+if re.match(patronDni, entradaDni):
+    print(f"- Su DNI nº {entradaDni} es correcto, continue\n")
+else:
+    print(f"- Su DNI nº {entradaDni} es incrorrecto, retroceda\n")
+
+#PASSWORD
+if re.match(patronPass, entradaPass):
+    print(f"- Su Password {entradaPass} es correcto, continue\n")
+else:
+    print(f"- Su Password {entradaPass} es incrorrecto, retroceda\n")
+
+#EMAIL
+if re.match(patronEmail, entradaEmail):
+    print(f"- Su Email {entradaEmail} es correcto, continue\n")
+else:
+    print(f"- Su Email {entradaEmail} es incrorrecto, retroceda\n")
+
+#IBAN
+if re.match(patronIban, entradaIban):
+    print(f"- Su IBAN nº {entradaIban} es correcto, continue\n")
+else:
+    print(f"- Su IBAN nº {entradaIban} es incrorrecto, retroceda\n")        
+
+
 
