@@ -1,4 +1,4 @@
-'''
+
 texto = "— ¡Eres un completo Gilipollas!—gritó Carlos, tirando el plato sobre la mesa.Marta lo miró sin inmutarse, cruzada de brazos.— El único idiota aquí eres tú, que te pones a gritar por un poco de brócoli.— ¡No es un poco de brócoli, pedazo de idiota! ¡Es que llevamos tres días cenando brócoli! ¿Te crees que tengo cara de maldito conejo o qué te pasa? —exclamó él, rojo de la rabia.— Escúchame bien, gilipollas —respondió Marta, dando un golpe en la mesa—. Si no te gusta el brócoli, te cocinas tú. Pero claro, como eres un idiota integral que no sabe ni freír un huevo, pretendes que yo te haga un banquete cada noche.Carlos resopló, mirando con desprecio el árbol verde atrapado en su tenedor.— Un gilipollas no se comería esto. Un idiota quizá sí. Así que quédate con tu brócoli, porque yo me voy a pedir una pizza.— Pues vete, idiota. A ver si la masa de la pizza te despierta las dos neuronas que te quedan, gilipollas. Y ni se te ocurra pedir la mía con brócoli, que te conozco.¿Te gustaría que cambie el tono de la historia (hacerla más cómica, absurda o dramática) o prefieres que añada más palabras repetitivas a la escena?"
 
 marca_censura = "***"
@@ -34,7 +34,7 @@ texto_modificado = texto.replace('Quijote','Manuel')
 
 cuenta = texto.count("DULCINEA".lower())
 print(cuenta)
-'''
+
 import re
 
 entradaDni = input("Ingrese su DNI: ")
@@ -71,5 +71,21 @@ if re.match(patronIban, entradaIban):
 else:
     print(f"- Su IBAN nº {entradaIban} es incrorrecto, retroceda\n")        
 
+entradaTexto = input("Ingrese una palabra ")
+
+
+'''
+def verificacionTexto (entradaTexto: str) -> str:
+    if 'xyz' not in entradaTexto and entradaTexto.endswith(('jpg', 'png', 'gif')):
+        return True   
+    return False
+
+print(verificacionTexto('xz.jpg'))
+
+
+texto = input('texto = ')
+verificar_cadena = lambda texto: ("xyz" not in texto) and texto.endswith(("jpg", "png", "gif"))
+print(verificar_cadena(texto))
+'''
 
 
