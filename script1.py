@@ -9,6 +9,9 @@ reemplazos = {
     "idiota": marca_censura
 }
 
+elementos = reemplazos[0][0]
+print(elementos)
+
 texto_modificado = texto
 for original, censurado in reemplazos.items():
     texto_modificado = texto_modificado.replace(original, censurado)

@@ -1,4 +1,8 @@
-import re
+""" import re
+import hashlib
+
+def hashPassword(password):
+    return hashlib.sha256(password.encode()).hexdigest()
 
 def menu():
 
@@ -28,6 +32,7 @@ def signIn():
     while True:
         registroEmail = input("\033[33mIngrese su correo: \033[0m\n")
         registroPassword = input("\033[33mIngrese su password: \033[0m\n")
+        passwordHasheada = hashPassword(registroPassword)
         
         if not re.match(patronEmail, registroEmail):
             print("\033[31mCorreo no valido. Intentelo de nuevo.\033[0m\n") 
@@ -41,7 +46,7 @@ def signIn():
         
         with open(fileName, "wt", encoding="utf-8") as f:
             f.write(f'{registroEmail}\n')
-            f.write(f'{registroPassword}\n')
+            f.write(f'{passwordHasheada}\n')
         
         print("\033[32mUsuario creado correctamente\033[0m\n")
         
@@ -69,7 +74,7 @@ def logIn():
             continue
         
 
-        if loginEmail != emailFichero and loginPassword != passwordFichero:
+        if loginEmail != emailFichero or hashPassword(loginPassword) != passwordFichero:
             print (f'\033[31mCorreo o contraseña incorrectos\033[0m\n')
             continue
         print(f'\033[32mBienvenido, {loginEmail}\033[0m\n') 
@@ -92,15 +97,19 @@ def recoveryPassword():
 
     except FileNotFoundError:
         
-        print("\033[31mEl correo electrónico no está registrado. Inténtelo de nuevo.\033[0m")
+        print("\033[31mEl correo electrónico no está registrado. Inténtelo de nuevo.\033[0m") """
 
         
 
 #--------------------------------------------------------------------------
 
-menu()
 
 
+ingredientes = ['Harina', 'Leche', 'Huevo', 'Vino', 'Sal']
 
+ingredientes_mayusculas = list(map(str.upper, ingredientes))
 
+ingredientes_simbolos = [ingrediente.replace("a","@") and ingrediente.replace("e","€") for ingrediente in ingredientes]
+
+print(ingredientes_simbolos)
 
